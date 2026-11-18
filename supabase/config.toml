@@ -1,0 +1,14 @@
+[functions.dispatch-push]
+verify_jwt = false
+
+[functions.create-merchant-subscription]
+verify_jwt = true
+
+[functions.create-ad-payment-link]
+verify_jwt = true
+
+[functions.cancel-merchant-subscription]
+verify_jwt = true
+
+[functions.razorpay-webhook]
+verify_jwt = false

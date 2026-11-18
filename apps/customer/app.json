@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "KiranaLink",
+    "slug": "kiranalink-customer",
+    "scheme": "kiranalink",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-notifications"
+    ],
+    "android": {
+      "package": "in.kiranalink.customer"
+    },
+    "ios": {
+      "bundleIdentifier": "in.kiranalink.customer"
+    }
+  }
+}

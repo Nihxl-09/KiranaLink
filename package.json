@@ -1,0 +1,27 @@
+{
+  "name": "kiranalink",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "customer": "npm run start --workspace @kiranalink/customer",
+    "retailer": "npm run start --workspace @kiranalink/retailer",
+    "customer:web": "npm run web --workspace @kiranalink/customer",
+    "retailer:web": "npm run web --workspace @kiranalink/retailer",
+    "portal:web": "npm run web --workspace @kiranalink/portal",
+    "portal:web:build": "npm run web:build --workspace @kiranalink/portal",
+    "customer:dev-client": "npm run start:dev-client --workspace @kiranalink/customer",
+    "retailer:dev-client": "npm run start:dev-client --workspace @kiranalink/retailer",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.2"
+  },
+  "overrides": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  }
+}

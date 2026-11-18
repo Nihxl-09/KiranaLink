@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "KiranaLink Business",
+    "slug": "kiranalink-business",
+    "scheme": "kiranalink-business",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow KiranaLink Business to select product photos."
+        }
+      ],
+      "expo-notifications"
+    ],
+    "android": {
+      "package": "in.kiranalink.business"
+    },
+    "ios": {
+      "bundleIdentifier": "in.kiranalink.business"
+    }
+  }
+}
