@@ -1,6 +1,7 @@
 # KiranaLink
 ### Connecting Local Retailers with Digital Customers
-
+customer link:[KiranaLink](https://kiranalink.vercel.app/)
+merchant link:[KiranaLink -Business](https://kiranlink-1.vercel.app/)
 KiranaLink is a multi-retailer commerce platform designed to bring local stores into one digital ecosystem. It helps customers discover products across participating neighbourhood retailers while enabling independent retailers to manage their stores, inventory and orders digitally.
 
 Instead of depending on a single store, customers can explore other participating retailers within the same platform when a product is unavailable.
