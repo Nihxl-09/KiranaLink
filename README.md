@@ -31,6 +31,18 @@ For production, set `EXPO_PUBLIC_CUSTOMER_APP_URL` and `EXPO_PUBLIC_RETAILER_APP
 
 Create a static web export from an app folder with `npm run web:build` or the portal with `npm run portal:web:build`. Customer and retailer sessions in a browser use browser local storage; native apps continue to use SecureStore.
 
+### Deploy web apps to Vercel
+
+Create three Vercel projects connected to this repository, one for each app. For every project, set the Root Directory to the repository root (`.`) so npm can resolve the shared workspaces. Use the following build settings:
+
+| Vercel project | Build command | Output directory |
+| --- | --- | --- |
+| Customer | `npm run web:build --workspace @kiranalink/customer` | `apps/customer/dist` |
+| Retailer | `npm run web:build --workspace @kiranalink/retailer` | `apps/retailer/dist` |
+| Portal | `npm run portal:web:build` | `apps/portal/dist` |
+
+Add `EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_ANON_KEY` to the Customer and Retailer projects. Add `EXPO_PUBLIC_CUSTOMER_APP_URL` and `EXPO_PUBLIC_RETAILER_APP_URL` to the Portal project, using the deployed Customer and Retailer URLs. Deploy Customer and Retailer first, then configure and deploy the Portal. In Supabase Auth URL Configuration, allow each deployed app's `/auth/callback` URL. Vercel hosts the web exports only; Supabase migrations and Edge Functions must be deployed separately.
+
 ## Mobile first run
 
 From this folder, install dependencies:

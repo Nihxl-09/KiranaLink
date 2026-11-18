@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import * as Linking from "expo-linking";
 import {
   ActivityIndicator,
+  Image,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -11,7 +12,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { colors, radius } from "@kiranalink/ui";
+import { colors, kiranaLinkLogo, radius } from "@kiranalink/ui";
 
 type Audience = "customer" | "retailer";
 
@@ -69,13 +70,12 @@ export default function PortalHome() {
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.content}>
           <View style={styles.brandRow}>
-            <View style={styles.brandIcon}>
-              <Ionicons name="leaf" size={23} color={colors.lime} />
-            </View>
-            <View>
-              <Text style={styles.brand}>KiranaLink</Text>
-              <Text style={styles.brandSub}>LOCAL COMMERCE, CONNECTED</Text>
-            </View>
+            <Image
+              source={kiranaLinkLogo}
+              style={styles.brandLogo}
+              resizeMode="contain"
+              accessibilityLabel="KiranaLink logo"
+            />
           </View>
 
           <View style={styles.intro}>
@@ -143,10 +143,8 @@ const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.paper },
   scroll: { flexGrow: 1, justifyContent: "center", paddingHorizontal: 22, paddingVertical: 28 },
   content: { width: "100%", maxWidth: 920, alignSelf: "center" },
-  brandRow: { flexDirection: "row", alignItems: "center", marginBottom: 52 },
-  brandIcon: { width: 46, height: 46, borderRadius: 16, backgroundColor: colors.green, justifyContent: "center", alignItems: "center", marginRight: 12 },
-  brand: { fontSize: 21, fontWeight: "900", color: colors.ink, letterSpacing: -0.7 },
-  brandSub: { fontSize: 8, fontWeight: "800", letterSpacing: 1.1, color: colors.muted, marginTop: 2 },
+  brandRow: { alignItems: "center", marginBottom: 22 },
+  brandLogo: { width: 230, height: 230 },
   intro: { maxWidth: 600, marginBottom: 27 },
   eyebrowPill: { alignSelf: "flex-start", flexDirection: "row", alignItems: "center", backgroundColor: colors.greenSoft, borderRadius: radius.pill, paddingHorizontal: 10, paddingVertical: 7, marginBottom: 15 },
   onlineDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.orange, marginRight: 7 },

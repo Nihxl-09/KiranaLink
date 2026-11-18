@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { colors, radius } from "./tokens";
+import { kiranaLinkLogo } from "./brand";
 
 type BackendSetupNoticeProps = {
   audience: "customer" | "retailer";
@@ -10,7 +11,12 @@ export function BackendSetupNotice({ audience }: BackendSetupNoticeProps) {
   return (
     <View style={styles.screen}>
       <View style={styles.card}>
-        <View style={styles.icon}><Text style={styles.iconText}>K</Text></View>
+        <Image
+          source={kiranaLinkLogo}
+          style={styles.logo}
+          resizeMode="contain"
+          accessibilityLabel="KiranaLink logo"
+        />
         <Text style={styles.eyebrow}>ONE-TIME CONNECTION</Text>
         <Text style={styles.title}>Connect your KiranaLink backend</Text>
         <Text style={styles.body}>
@@ -32,8 +38,7 @@ export function BackendSetupNotice({ audience }: BackendSetupNoticeProps) {
 const styles = StyleSheet.create({
   screen: { flex: 1, justifyContent: "center", backgroundColor: colors.paper, padding: 22 },
   card: { backgroundColor: colors.surface, borderRadius: 23, borderWidth: 1, borderColor: colors.line, padding: 22 },
-  icon: { width: 44, height: 44, borderRadius: 15, backgroundColor: colors.green, justifyContent: "center", alignItems: "center", marginBottom: 17 },
-  iconText: { color: colors.lime, fontSize: 22, fontWeight: "900" },
+  logo: { width: 184, height: 184, alignSelf: "center", marginBottom: 8 },
   eyebrow: { color: colors.orange, fontSize: 8, fontWeight: "900", letterSpacing: 1.1, marginBottom: 9 },
   title: { color: colors.ink, fontSize: 22, lineHeight: 28, fontWeight: "900", letterSpacing: -0.5, marginBottom: 8 },
   body: { color: colors.muted, fontSize: 12, lineHeight: 18, marginBottom: 17 },

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   ActivityIndicator,
+  Image,
   KeyboardAvoidingView,
   Platform,
   Pressable,
@@ -12,6 +13,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { colors, radius } from "./tokens";
+import { kiranaLinkLogo } from "./brand";
 
 type AuthPanelProps = {
   audience: "customer" | "retailer";
@@ -87,11 +89,13 @@ export function AuthPanel({ audience, onSubmit, onRecoverPassword, statusMessage
     <KeyboardAvoidingView style={styles.keyboardScreen} behavior={Platform.OS === "ios" ? "padding" : undefined}>
       <ScrollView contentContainerStyle={styles.screen} keyboardShouldPersistTaps="handled">
         <View style={styles.brandRow}>
-          <View style={styles.brandIcon}><Ionicons name="leaf" size={23} color={colors.lime} /></View>
-          <View>
-            <Text style={styles.brand}>KiranaLink</Text>
-            <Text style={styles.brandSub}>{audience === "customer" ? "NEIGHBOURHOOD SHOPPING" : "RETAILER WORKSPACE"}</Text>
-          </View>
+          <Image
+            source={kiranaLinkLogo}
+            style={styles.brandLogo}
+            resizeMode="contain"
+            accessibilityLabel="KiranaLink logo"
+          />
+          <Text style={styles.brandSub}>{audience === "customer" ? "NEIGHBOURHOOD SHOPPING" : "RETAILER WORKSPACE"}</Text>
         </View>
 
         <View style={styles.card}>
@@ -219,10 +223,9 @@ function isValidEmail(email: string): boolean {
 const styles = StyleSheet.create({
   keyboardScreen: { flex: 1, backgroundColor: colors.paper },
   screen: { flexGrow: 1, alignItems: "center", justifyContent: "center", paddingHorizontal: 22, paddingVertical: 28 },
-  brandRow: { width: "100%", maxWidth: 520, flexDirection: "row", alignItems: "center", marginBottom: 22 },
-  brandIcon: { width: 46, height: 46, borderRadius: 16, backgroundColor: colors.green, justifyContent: "center", alignItems: "center", marginRight: 12 },
-  brand: { fontSize: 21, fontWeight: "900", color: colors.ink, letterSpacing: -0.7 },
-  brandSub: { fontSize: 8, fontWeight: "800", letterSpacing: 1.1, color: colors.muted, marginTop: 2 },
+  brandRow: { width: "100%", maxWidth: 520, alignItems: "center", marginBottom: 18 },
+  brandLogo: { width: 180, height: 180 },
+  brandSub: { fontSize: 8, fontWeight: "800", letterSpacing: 1.1, color: colors.muted, marginTop: -4 },
   card: { width: "100%", maxWidth: 520, backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.line, borderRadius: 24, padding: 21 },
   eyebrowPill: { alignSelf: "flex-start", flexDirection: "row", alignItems: "center", backgroundColor: colors.greenSoft, borderRadius: radius.pill, paddingHorizontal: 10, paddingVertical: 7, marginBottom: 15 },
   onlineDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.orange, marginRight: 7 },
